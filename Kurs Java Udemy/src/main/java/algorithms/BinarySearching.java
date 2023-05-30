@@ -9,16 +9,20 @@ public class BinarySearching {
         int min = 0;
         int max = table.length - 1;
         int mid;
-        int num = 223;
+        int num = 122534;
 
-        while (min < max) {
+        while (min <= max) {
             mid = (min + max) / 2;
             if (table[mid] == num) {
-                System.out.println("Searched number is found at " + mid + " index.");
+                System.out.println("Searched number is found at index: " + mid);
+                break;
             } else if (table[mid] < num){
                 min = mid + 1;
             } else {
                 max = mid - 1;
+            }
+            if (min > max){
+                System.out.println("Number doesn't found.");
             }
         }
 
