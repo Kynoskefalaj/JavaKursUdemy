@@ -13,12 +13,24 @@ public class Sorting {
         printArray(bubbleSort(myArr2));
         System.out.println("---------------------");
         printArray(insertionSort(myArr));
+
+        System.out.println("BubbleSort nano time: " + getAlgorithmNanoTime(() -> bubbleSort(myArr)));
+        System.out.println("InsertionSort nano time: " + getAlgorithmNanoTime(() -> insertionSort(myArr)));
     }
 
     static void printArray(int[] arr){
         for (int number : arr) {
             System.out.println(number);
         }
+    }
+
+    static long getAlgorithmNanoTime(Runnable method) {
+        long start = System.nanoTime();
+
+        method.run();
+
+        long end = System.nanoTime();
+        return end - start;
     }
 
     static int[] bubbleSort(int[] arr) {
@@ -40,7 +52,7 @@ public class Sorting {
                 return arr;
             }
         }
-        return null;
+        return arr;
     }
 
     static int[] insertionSort(int[] arr) {
