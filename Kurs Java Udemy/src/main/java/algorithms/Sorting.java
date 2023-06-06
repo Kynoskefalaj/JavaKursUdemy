@@ -9,7 +9,10 @@ public class Sorting {
 
         System.out.println("---------------------");
         printArray(bubbleSort(myArr));
+        System.out.println("---------------------");
         printArray(bubbleSort(myArr2));
+        System.out.println("---------------------");
+        printArray(insertionSort(myArr));
     }
 
     static void printArray(int[] arr){
@@ -38,5 +41,21 @@ public class Sorting {
             }
         }
         return null;
+    }
+
+    static int[] insertionSort(int[] arr) {
+//        i = 1 because we have to start from second element
+        for (int i = 1; i < arr.length; i++) {
+            int card = arr[i];
+            int j = i;
+
+            while (j > 0 && arr[j-1] > card) {
+                arr[j] = arr[j-1];
+                j--;
+            }
+            arr[j] = card;
+        }
+
+        return arr;
     }
 }
